@@ -25,29 +25,59 @@ function playRound(playerChoice, computerChoice) {
 
     if (bothChoices.includes('rock') && bothChoices.includes('paper')) {
         if (bothChoices[0] == 'paper') {
-            return "You Win! Paper beats Rock";
+            console.log("You Win! Paper beats Rock");
+            return true;
         } else {
-            return "You Lose! Paper beats Rock"; 
+            console.log("You Lose! Paper beats Rock"); 
+            return false;
         }
     } else if (bothChoices.includes("rock") && bothChoices.includes("scissors")) {
         if (bothChoices[0] == "rock") {
-           return "You Win! Rock beats Scissors";
+           console.log("You Win! Rock beats Scissors");
+           return true;
         } else {
-           return "You Lose! Rock beats Scissors";
+           console.log("You Lose! Rock beats Scissors");
+           return false;
         }
     } else if (bothChoices.includes("paper") && bothChoices.includes("scissors")) {
         if (bothChoices[0] == "scissors") {
-            return "You Win! Scissors beats Paper";
+            console.log("You Win! Scissors beats Paper");
+            return true;
         } else {
-            return "You Lose! Scissors beats Paper";
+            console.log("You Lose! Scissors beats Paper");
+            return false;
         }
     } else {
-        return "Its a Tie!";
+        console.log("It's a tie!")
+        return "tie";
+
     }
     
 }
 
-const playerChoice = "rOck";
+function playGame () {
+    let playerWins = 0;
+    let computerWins = 0;
+    for (let i = 0; i < 5 < i++;) {
+        const playerChoice = prompt("Enter choice: ");
+        const computerChoice = getComputerChoice();
+        console.log(playRound(playerChoice, computerChoice));
+        if(playRound(playerChoice, computerChoice)) {
+            playerWins ++;
+        }else if (!playRound(playerChoice, computerChoice)) {
+            computerWins ++;
+        }
+    }
+    if (playerWins > computerWins) {
+        console.log("You Win! The score was: ${playerWins} to ${computerWins}!");
+    }else if (playerWins < computerWins) {
+        console.log("You Lose :(. The score was: ${playerWins} to ${computerWins}");
+    }else {
+        console.log("You Tied! It was: ${playerWins} to ${computerWins}");
+    }
+}
+
+
 const computerChoice = getComputerChoice();
 
 console.log(playRound(playerChoice, computerChoice));
