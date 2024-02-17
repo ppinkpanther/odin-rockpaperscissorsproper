@@ -21,23 +21,28 @@ function playRound(playerChoice, computerChoice) {
     playerChoice.toLowerCase();
     let playerWin = false;
     const bothChoices = [playerChoice, computerChoice];
+    console.log(bothChoices);
 
     if (bothChoices.includes('rock') && bothChoices.includes('paper')) {
         if (bothChoices[0] == 'paper') {
             playerWin = true;
+            console.log(playerWin);
         }
     } else if (bothChoices.includes("rock") && bothChoices.includes("scissors")) {
         if (bothChoices[0] == "rock") {
             playerWin = true;
+            console.log(playerWin);
         }
     } else if (bothChoices.includes("paper") && bothChoices.includes("scissors")) {
         if (bothChoices[0] == "scissors") {
             playerWin = true;
+            console.log(playerWin);
         }
     } else {
         playerWin = 'tie';
+        console.log(playerWin);
     }
-    
+    return playerWin;
 }
 
 getComputerChoice();
