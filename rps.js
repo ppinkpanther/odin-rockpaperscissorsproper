@@ -15,11 +15,12 @@ function getComputerChoice() {
             console.log ('Uh oh');
     }
     console.log(choice);
+    return choice;
 }
 
 function playRound(playerChoice, computerChoice) {
-    playerChoice.toLowerCase();
-    const bothChoices = [playerChoice, computerChoice];
+    let playerChoiceLower = playerChoice.toLowerCase();
+    const bothChoices = [playerChoiceLower, computerChoice];
     console.log(bothChoices);
 
     if (bothChoices.includes('rock') && bothChoices.includes('paper')) {
@@ -46,6 +47,10 @@ function playRound(playerChoice, computerChoice) {
     
 }
 
+const playerChoice = "rOck";
+const computerChoice = getComputerChoice();
+
+console.log(playRound(playerChoice, computerChoice));
 
 
 
