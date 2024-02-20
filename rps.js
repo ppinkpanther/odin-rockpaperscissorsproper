@@ -78,7 +78,7 @@ function playGame () {
     }else if (playerWins < computerWins) {
         console.log("You Lose :(. The score was: ${playerWins} to ${computerWins}");
     }else {
-        console.log("You Tied! It was: ${playerWins} to ${computerWins}");
+        console.log('You Tied! It was: ' + playerWins + ' to ' + computerWins);
     }
 }
 
