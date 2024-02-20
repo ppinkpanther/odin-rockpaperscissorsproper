@@ -58,7 +58,8 @@ function playRound(playerChoice, computerChoice) {
 function playGame () {
     let playerWins = 0;
     let computerWins = 0;
-    for (let i = 0; i < 5 < i++;) {
+    console.log(playerWins, computerWins);
+    for (let i = 0; i < 5; i++) {
         const playerChoice = prompt("Enter choice: ").toLowerCase();
         const computerChoice = getComputerChoice();
         console.log(playRound(playerChoice, computerChoice));
@@ -70,6 +71,8 @@ function playGame () {
         console.log(playerWins);
         console.log(computerWins);
     }
+    
+    
     if (playerWins > computerWins) {
         console.log("You Win! The score was: ${playerWins} to ${computerWins}!");
     }else if (playerWins < computerWins) {
@@ -80,7 +83,7 @@ function playGame () {
 }
 
 
-
+playGame();
 
 
     
