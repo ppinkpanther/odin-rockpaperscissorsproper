@@ -28,13 +28,13 @@ function playRound(playerChoice, computerChoice) {
     let winner = findWinner(bothChoices);
     if(winner == 'win'){
         playerWins ++;
-        displayWinner.textContent = 'You win! ${bothChoices[0]} beats ${bothChoices[1]}.';
+        displayWinner.textContent = `You win! ${bothChoices[0]} beats ${bothChoices[1]}.`;
     }else if(winner == 'loss'){
         computerWins ++;
-        displayWinner.textContent = 'You lose! ${bothChoices[1]} beats ${bothChoices[0].}';
+        displayWinner.textContent = `You lose! ${bothChoices[1]} beats ${bothChoices[0]}.`;
     }
 
-    displayScore.textContent = 'Computer: ${computerWins} | Player: ${playerWins}';
+    displayScore.textContent = `Computer: ${computerWins} | Player: ${playerWins}`;
 
     if(computerWins == 5){
         displayWinner.textContent = 'Game Over! You lost!';
@@ -42,7 +42,6 @@ function playRound(playerChoice, computerChoice) {
         displayWinner.textContent = 'Game Over! You won!';
     }
 
-    buttons.forEach(button => button.textContent = 'RESET');
     return;
 }
 
