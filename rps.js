@@ -1,3 +1,5 @@
+//Original logic
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3);
     console.log(choice)
@@ -55,35 +57,35 @@ function playRound(playerChoice, computerChoice) {
     
 }
 
-function playGame () {
-    let playerWins = 0;
-    let computerWins = 0;
-    console.log(playerWins, computerWins);
-    for (let i = 0; i < 5; i++) {
-        const playerChoice = prompt("Enter choice: ").toLowerCase();
-        const computerChoice = getComputerChoice();
-        console.log(playRound(playerChoice, computerChoice));
-        if(playRound(playerChoice, computerChoice)) {
-            playerWins ++;
-        }else if (!playRound(playerChoice, computerChoice)) {
-            computerWins ++;
-        }
-        console.log(playerWins);
-        console.log(computerWins);
-    }
+// function playGame () {
+//     let playerWins = 0;
+//     let computerWins = 0;
+//     console.log(playerWins, computerWins);
+//     for (let i = 0; i < 5; i++) {
+//         const playerChoice = prompt("Enter choice: ").toLowerCase();
+//         const computerChoice = getComputerChoice();
+//         console.log(playRound(playerChoice, computerChoice));
+//         if(playRound(playerChoice, computerChoice)) {
+//             playerWins ++;
+//         }else if (!playRound(playerChoice, computerChoice)) {
+//             computerWins ++;
+//         }
+//         console.log(playerWins);
+//         console.log(computerWins);
+//     }
     
     
-    if (playerWins > computerWins) {
-        console.log('You Win! The score was: ' + playerWins + ' to ' + computerWins);
-    }else if (playerWins < computerWins) {
-        console.log('You Lose :(. The score was: ' + playerWins + ' to ' + computerWins);
-    }else {
-        console.log('You Tied! It was: ' + playerWins + ' to ' + computerWins);
-    }
-}
+//     if (playerWins > computerWins) {
+//         console.log('You Win! The score was: ' + playerWins + ' to ' + computerWins);
+//     }else if (playerWins < computerWins) {
+//         console.log('You Lose :(. The score was: ' + playerWins + ' to ' + computerWins);
+//     }else {
+//         console.log('You Tied! It was: ' + playerWins + ' to ' + computerWins);
+//     }
+// }
 
 
-playGame();
+// playGame();
 
 
     
