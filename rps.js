@@ -1,5 +1,8 @@
 //Original logic
 
+let playerWins = 0;
+let computerWins = 0;
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3);
     console.log(choice)
@@ -22,61 +25,47 @@ function getComputerChoice() {
 
 function playRound(playerChoice, computerChoice) {
     const bothChoices = [playerChoice, computerChoice];
-    console.log(bothChoices);
-
-    if (bothChoices.includes('rock') && bothChoices.includes('paper')) {
-        if (bothChoices[0] == 'paper') {
-            console.log("You Win! Paper beats Rock");
-            return true;
-        } else {
-            console.log("You Lose! Paper beats Rock"); 
-            return false;
-        }
-    } else if (bothChoices.includes("rock") && bothChoices.includes("scissors")) {
-        if (bothChoices[0] == "rock") {
-           console.log("You Win! Rock beats Scissors");
-           return true;
-        } else {
-           console.log("You Lose! Rock beats Scissors");
-           return false;
-        }
-    } else if (bothChoices.includes("paper") && bothChoices.includes("scissors")) {
-        if (bothChoices[0] == "scissors") {
-            console.log("You Win! Scissors beats Paper");
-            return true;
-        } else {
-            console.log("You Lose! Scissors beats Paper");
-            return false;
-        }
-    } else {
-        console.log("It's a tie!")
-        return "tie";
-
+    let winner = findWinner(bothChoices);
+    if(winner == 'win'){
+        playerWins ++;
+        displayWinner.textContent = 'You win! ${bothChoices[0]} beats ${bothChoices[1]}.';
+    }else if(winner == 'loss'){
+        computerWins ++;
+        displayWinner.textContent = 'You lose! ${bothChoices[1]} beats ${bothChoices[0].}';
     }
-    
+
+    displayScore.textContent = 'Computer: ${computerWins} | Player: ${playerWins}';
+
+    if(computerWins == 5){
+        displayWinner.textContent = 'Game Over! You lost!';
+    }else if(playerWins == 5){
+        displayWinner.textContent = 'Game Over! You won!';
+    }
+
+    buttons.forEach(button => button.textContent = 'RESET');
+    return;
 }
 
 function findWinner(choicesArray){
-    if (bothChoices.includes('rock') && bothChoices.includes('paper')) {
-        if (bothChoices[0] == 'paper') {
+    if (choicesArray.includes('rock') && choicesArray.includes('paper')) {
+        if (choicesArray[0] == 'paper') {
             return 'win';
         } else {
             return 'loss';
         }
-    } else if (bothChoices.includes("rock") && bothChoices.includes("scissors")) {
-        if (bothChoices[0] == "rock") {
+    } else if (choicesArray.includes("rock") && choicesArray.includes("scissors")) {
+        if (choicesArray[0] == "rock") {
            return 'win';
         } else {
            return 'loss';
         }
-    } else if (bothChoices.includes("paper") && bothChoices.includes("scissors")) {
-        if (bothChoices[0] == "scissors") {
+    } else if (choicesArray.includes("paper") && choicesArray.includes("scissors")) {
+        if (choicesArray[0] == "scissors") {
             return 'win';
         } else {
             return 'loss';
         }
     } else {
-        console.log("It's a tie!")
         return "tie";
 
     }
@@ -85,11 +74,12 @@ function findWinner(choicesArray){
 
 //UI
 const options = document.querySelector('#options');
+const buttons = document.querySelectorAll('button');
 const chooseRock = document.querySelector('#rock');
 const choosePaper = document.querySelector('#paper');
 const chooseScissors = document.querySelector('#scissors');
 const textDisplay = document.querySelector('#textDisplay');
-const score = document.querySelector('#score');
+const displayScore = document.querySelector('#score');
 const displayWinner = document.querySelector('div > p');
 
 
@@ -110,7 +100,14 @@ options.addEventListener('click', (event) => {
     }
     console.log(playerOption);
 
-    playRound(playerOption, getComputerChoice());
+    if(playerWins < 5 && computerWins < 5){
+        playRound(playerOption, getComputerChoice());
+    }else{
+        playerWins = 0;
+        computerWins = 0;
+    }
+
+
 })
 
 
