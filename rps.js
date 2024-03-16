@@ -21,8 +21,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerChoice, computerChoice) {
-    let playerChoiceLower = playerChoice.toLowerCase();
-    const bothChoices = [playerChoiceLower, computerChoice];
+    const bothChoices = [playerChoice, computerChoice];
     console.log(bothChoices);
 
     if (bothChoices.includes('rock') && bothChoices.includes('paper')) {
@@ -56,6 +55,64 @@ function playRound(playerChoice, computerChoice) {
     }
     
 }
+
+function findWinner(choicesArray){
+    if (bothChoices.includes('rock') && bothChoices.includes('paper')) {
+        if (bothChoices[0] == 'paper') {
+            return 'win';
+        } else {
+            return 'loss';
+        }
+    } else if (bothChoices.includes("rock") && bothChoices.includes("scissors")) {
+        if (bothChoices[0] == "rock") {
+           return 'win';
+        } else {
+           return 'loss';
+        }
+    } else if (bothChoices.includes("paper") && bothChoices.includes("scissors")) {
+        if (bothChoices[0] == "scissors") {
+            return 'win';
+        } else {
+            return 'loss';
+        }
+    } else {
+        console.log("It's a tie!")
+        return "tie";
+
+    }
+
+}
+
+//UI
+const options = document.querySelector('#options');
+const chooseRock = document.querySelector('#rock');
+const choosePaper = document.querySelector('#paper');
+const chooseScissors = document.querySelector('#scissors');
+const textDisplay = document.querySelector('#textDisplay');
+const score = document.querySelector('#score');
+const displayWinner = document.querySelector('div > p');
+
+
+let playerOption = ''; 
+
+options.addEventListener('click', (event) => {
+    let target = event.target;
+    switch (target.id){
+        case 'rock':
+            playerOption = 'rock';
+            break;
+        case 'paper': 
+            playerOption = 'paper';
+            break;
+        case 'scissors':
+            playerOption = 'scissors';
+            break;
+    }
+    console.log(playerOption);
+
+    playRound(playerOption, getComputerChoice());
+})
+
 
 // function playGame () {
 //     let playerWins = 0;
